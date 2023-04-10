@@ -1,5 +1,7 @@
 <?php
 
+use Core\Message;
+
 $heading = 'Not Found';
 
 view('partials/head.php', [

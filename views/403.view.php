@@ -1,5 +1,7 @@
 <?php
 
+use Core\Message;
+
 $heading = 'Unauthorized';
 
 view('partials/head.php', [

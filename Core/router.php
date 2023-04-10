@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 $routes = require base_path('routes.php');
 
 function routesToController ($path, $routes) {

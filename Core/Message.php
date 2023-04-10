@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Message {
   const NOT_FOUND = "This page doesn't exists.";
   const UNAUTHORIZED = "You don't have permission to access the requested resource.";
