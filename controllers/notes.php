@@ -1,10 +1,13 @@
 <?php
 
-$config = require 'config.php';
-$db = new Database($config['database']);
-
-$notes = $db->query("select id, body, user_id from notes where user_id = :id", [':id' => $_GET['user']])->fetchAll();
-
 $heading = 'My Notes';
+
+$currentUserId = 1;
+
+$db = new Database();
+
+$notes = $db->query("select id, body, user_id from notes where user_id = :id", [
+  ':id' => $currentUserId
+])->findAll();
 
 require 'views/notes.view.php';

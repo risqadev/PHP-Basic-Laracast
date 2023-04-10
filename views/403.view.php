@@ -1,14 +1,15 @@
 <?php require 'partials/head.php' ?>
 <?php require 'partials/nav.php' ?>
 <?php
-  $heading = 'Not Found';
+  $heading = 'Unauthorized';
   require 'partials/banner.php'
 ?>
+
 
 <main>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <p>Sorry.</p>
-    <p><?= Messages::NOT_FOUND ?></p>
+    <p><?= Messages::UNAUTHORIZED ?></p>
   </div>
 </main>
 
