@@ -1,15 +1,14 @@
 <?php
 
-$heading = 'Create Note';
-
 $currentUserId = 1;
+
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $db = new Database();
-  $errors = [];
 
   if (! Validator::string($_POST['body'], 1, 1000))
-    $errors['body'] = Messages::NOTE_BODY_LENGTH;
+    $errors['body'] = Message::NOTE_BODY_LENGTH;
 
   if (empty($errors)) {
     $db->query("INSERT INTO notes (body, user_id) VALUES (:body, :user)", [
@@ -19,4 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-require 'views/notes/create.view.php';
+view('notes/create.view.php', [
+  'heading' => 'Create Note',
+  'errors' => $errors
+]);

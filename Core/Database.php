@@ -5,7 +5,7 @@ class Database {
   private $statement;
 
   private function loadConfig () {
-    $dbConfig = require 'config.php';
+    $dbConfig = require base_path('config.php');
     return $dbConfig['database'];
   }
 

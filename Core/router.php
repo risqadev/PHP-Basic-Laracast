@@ -1,10 +1,10 @@
 <?php
 
-$routes = require 'routes.php';
+$routes = require base_path('routes.php');
 
 function routesToController ($path, $routes) {
   if (array_key_exists($path, $routes)) {
-    require 'controllers/' . $routes[$path];
+    require base_path("controllers/{$routes[$path]}");
   } else {
     abort();
   }
@@ -12,7 +12,7 @@ function routesToController ($path, $routes) {
 
 function abort ($code = Response::NOT_FOUND) {
   http_response_code($code);
-  require "views/{$code}.view.php";
+  require base_path("views/{$code}.view.php");
   die();
 }
 

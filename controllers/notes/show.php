@@ -1,7 +1,5 @@
 <?php
 
-$heading = 'Note';
-
 $currentUserId = 1;
 
 $db = new Database();
@@ -12,4 +10,7 @@ $note = $db->query("select id, body, user_id from notes where id = :id", [
 
 authorize($note['user_id'] === $currentUserId);
 
-require 'views/notes/show.view.php';
+view('notes/show.view.php', [
+  'heading' => 'Note',
+  'note' => $note
+]);
