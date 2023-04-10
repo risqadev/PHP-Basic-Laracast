@@ -10,4 +10,4 @@ $notes = $db->query("select id, body, user_id from notes where user_id = :id", [
   ':id' => $currentUserId
 ])->findAll();
 
-require 'views/notes.view.php';
+require 'views/notes/index.view.php';
