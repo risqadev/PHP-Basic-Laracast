@@ -22,7 +22,20 @@ view('partials/banner.php', [
       <?= htmlspecialchars($note['body']) ?>
     </p>
 
+    <form method="POST">
+      <div class="mt-6 flex items-center gap-x-6">
+        <input  type="hidden"
+                name="_method"
+                value="DELETE">
+        <input  type="hidden"
+                name="id"
+                value="<?= $note['id'] ?>">
+        <button type="submit"
+                class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >Delete</button>
+      </div>
+    </form>
   </div>
 </main>
 
-<?php view('partials/footer.php') ?>
+<?php view('partials/footer.php') ?>  
