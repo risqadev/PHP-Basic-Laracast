@@ -12,7 +12,7 @@ view('partials/banner.php', [
 <main>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-    <form method="POST" action="/notes">
+    <form method="POST" action="/note">
       <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
 
@@ -23,7 +23,7 @@ view('partials/banner.php', [
               <div class="mt-2">
                 <textarea id="body" name="body" rows="3" placeholder="Write here your note."
                           class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                ><?= $_POST['body'] ?? '' ?></textarea>
+                ><?= !$errors['body'] ? $note['body'] : $_POST['body'] ?></textarea>
               </div>
               <?php if (isset($errors['body'])) : ?>
                 <p class="mt-3 text-sm leading-6 text-red-600">
@@ -37,13 +37,17 @@ view('partials/banner.php', [
       </div>
 
       <div class="mt-6 flex items-center justify-end gap-x-6">
-        <a  href="/notes"
+        <a  href="/note?id=<?= $note['id'] ?>"
             class="rounded-md px-3 py-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-200">
           Cancel
         </a>
-        <button type="submit"
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >Save</button>
+        <input  type="hidden"
+                name="_method"
+                value="PATCH">
+        <input  type="hidden"
+                name="id"
+                value="<?= $note['id'] ?>">
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
       </div>
     </form>
 

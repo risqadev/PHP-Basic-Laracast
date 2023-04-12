@@ -23,7 +23,7 @@ view('partials/banner.php', [
 
     <p class="mt-6">
       <a  href="/notes/create"
-          class="text-blue-500 hover:underline">
+          class="rounded-md px-3 py-2 bg-blue-500 text-sm font-semibold text-white hover:bg-blue-700 text-blue-500">
         Create note
       </a>
     </p>
