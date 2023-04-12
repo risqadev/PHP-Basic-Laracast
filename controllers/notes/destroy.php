@@ -1,10 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $currentUserId = 1;
 
-$db = new Database();
+$db = App::resolve(Database::class);
 
 $note = $db->query('SELECT id, body, user_id FROM notes WHERE id = :id', [
   'id' => $_POST['id']

@@ -8,15 +8,7 @@ class Database {
   private $connection;
   private $statement;
 
-  private function loadConfig () {
-    $dbConfig = require base_path('config.php');
-    return $dbConfig['database'];
-  }
-
-  public function __construct ($config = NULL, $user = NULL, $password = NULL) {
-    if (! $config)
-      $config = $this->loadConfig();
-
+  public function __construct ($config, $user = NULL, $password = NULL) {
     if (! $user)
       $user = $config['user'] ?? 'root';
 

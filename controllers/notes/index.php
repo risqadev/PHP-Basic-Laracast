@@ -1,12 +1,13 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $currentUserId = 1;
 
-$db = new Database();
+$db = App::resolve(Database::class);
 
-$notes = $db->query("select id, body, user_id from notes where user_id = :id", [
+$notes = $db->query("SELECT id, body, user_id FROM notes WHERE user_id = :id", [
   ':id' => $currentUserId
 ])->findAll();
   
