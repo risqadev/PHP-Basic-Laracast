@@ -15,7 +15,7 @@ view('partials/banner.php', [
       <a href="/notes" class="text-blue-500 hover:underline">go back...</a>
     </p>
 
-    <form method="POST">
+    <form method="POST" action="/notes">
       <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
 
