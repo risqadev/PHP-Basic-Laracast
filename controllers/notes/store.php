@@ -10,21 +10,21 @@ $currentUserId = 1;
 $errors = [];
 
 if (! Validator::string($_POST['body'], 1, 1000))
-  $errors['body'] = Message::NOTE_BODY_LENGTH;
+  $errors['body'] = Message::note_body_length('1,000');
 
-if (empty($errors)) {
-  $db = App::resolve(Database::class);
-
-  $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user)', [
-    'body' => $_POST['body'],
-    'user'=> $currentUserId
+if (! empty($errors)) {
+  return view('notes/create.view.php', [
+    'heading' => 'Create Note',
+    'errors' => $errors
   ]);
-
-  header('location: /notes');
-  exit();
 }
 
-view('notes/create.view.php', [
-  'heading' => 'Create Note',
-  'errors' => $errors
+$db = App::resolve(Database::class);
+
+$db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user)', [
+  'body' => $_POST['body'],
+  'user'=> $currentUserId
 ]);
+
+header('location: /notes');
+exit();

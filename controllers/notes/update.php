@@ -10,7 +10,7 @@ $currentUserId = 1;
 $errors = [];
 
 if (! Validator::string($_POST['body'], 1, 1000))
-  $errors['body'] = Message::NOTE_BODY_LENGTH;
+  $errors['body'] = Message::note_body_length('1,000');
 
 if (empty($errors)) {
   $db = App::resolve(Database::class);
