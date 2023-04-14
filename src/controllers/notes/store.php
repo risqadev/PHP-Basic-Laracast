@@ -9,8 +9,9 @@ $currentUserId = 1;
 
 $errors = [];
 
-if (! Validator::string($_POST['body'], 1, 1000))
+if (! Validator::string($_POST['body'], 1, 1000)) {
   $errors['body'] = Message::note_body_length('1,000');
+}
 
 if (! empty($errors)) {
   return view('notes/create.view.php', [

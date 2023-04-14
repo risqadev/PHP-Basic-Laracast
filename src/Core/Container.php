@@ -2,14 +2,17 @@
 
 namespace Core;
 
-class Container {
+class Container
+{
   protected $bindings = [];
 
-  public function bind ($key, $resolver) {
+  public function bind($key, $resolver)
+  {
     $this->bindings[$key] = $resolver;
   }
 
-  public function resolve ($key) {
+  public function resolve($key)
+  {
     $resolver = $this->bindings[$key];
 
     if (! $resolver) {

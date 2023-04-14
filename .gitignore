@@ -4,3 +4,4 @@ sql/
 vendor/
 _vscode/
 .vscode/
+.php-cs-fixer.cache

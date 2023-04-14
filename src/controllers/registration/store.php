@@ -5,7 +5,6 @@ use Core\Database;
 use Core\Message;
 use Core\Validator;
 
-
 $email = $_POST['email'];
 $password = $_POST['password'];
 
