@@ -1,4 +1,5 @@
 config.php
+tools/
 sql/
 vendor/
 _vscode/
