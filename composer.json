@@ -1,0 +1,16 @@
+{
+    "name": "risqadev/php-basic-laracast",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ricardo Camacho",
+            "email": "risqadev@gmail.com"
+        }
+    ],
+    "require": {}
+}

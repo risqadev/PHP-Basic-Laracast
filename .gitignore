@@ -1,2 +1,5 @@
 config.php
 sql/
+vendor/
+_vscode/
+.vscode/
