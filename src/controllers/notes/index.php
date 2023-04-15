@@ -3,7 +3,7 @@
 use Core\App;
 use Core\Database;
 
-$currentUserId = 1;
+$currentUserId = $_SESSION['user']['id'];
 
 $db = App::resolve(Database::class);
 

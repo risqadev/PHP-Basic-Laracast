@@ -1,7 +1,7 @@
 <?php
 
 view('partials/head.php', [
-  'heading' => $heading
+  'heading' => 'Login'
 ]);
 view('partials/nav.php');
 ?>
@@ -14,7 +14,7 @@ view('partials/nav.php');
         <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form class="mt-8 space-y-6" action="/sessions" method="POST">
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
             <label for="email-address" class="sr-only">Email address</label>
@@ -39,6 +39,15 @@ view('partials/nav.php');
                    value="<?= $_POST['password'] ?? '' ?>">
           </div>
         </div>
+        <ul>
+          <?php if (isset($errors['email'])) : ?>
+              <li class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></li>
+          <?php endif; ?>
+
+          <?php if (isset($errors['password'])) : ?>
+              <li class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></li>
+          <?php endif; ?>
+        </ul>
         <div>
           <button type="submit" class="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -49,15 +58,6 @@ view('partials/nav.php');
             Sign in
           </button>
         </div>
-        <ul>
-          <?php if (isset($errors['email'])) : ?>
-              <li class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></li>
-          <?php endif; ?>
-
-          <?php if (isset($errors['password'])) : ?>
-              <li class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></li>
-          <?php endif; ?>
-        </ul>
       </form>
     </div>
   </div>

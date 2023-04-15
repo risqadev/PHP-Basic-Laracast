@@ -2,6 +2,6 @@
 
 $heading = 'Login';
 
-view('registration/login.view.php', [
+view('sessions/create.view.php', [
   'heading' => $heading
 ]);

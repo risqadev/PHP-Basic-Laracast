@@ -9,6 +9,7 @@ class Message
   private const NOTE_BODY_LENGTH = "A body of no more than :max characters is required.";
   public const EMAIL_INVALID = "Please provide a valid email address.";
   private const PASSWORD_INVALID = "Please provide a password between :min and :max characters long.";
+  public const USER_NOT_FOUND = "No matching account found for that email address and password.";
 
   public static function note_body_length($max)
   {

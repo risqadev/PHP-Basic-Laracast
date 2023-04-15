@@ -5,7 +5,7 @@ use Core\Database;
 use Core\Message;
 use Core\Validator;
 
-$currentUserId = 1;
+$currentUserId = $_SESSION['user']['id'];
 
 $errors = [];
 
