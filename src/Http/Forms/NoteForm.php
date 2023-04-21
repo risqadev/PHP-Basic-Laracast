@@ -7,7 +7,7 @@ use Core\Validator;
 
 class NoteForm
 {
-  private $minNoteLength = 1;
+  private $minNoteLength = 5;
   private $maxNoteLength = 1000;
   private $errors = [];
 

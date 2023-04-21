@@ -2,8 +2,9 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 
-$currentUserId = $_SESSION['user']['id'];
+$currentUserId = Session::get('user')['id'];
 
 $notes = App::resolve(Database::class)->query("SELECT id, body, user_id FROM notes WHERE user_id = :id", [
   ':id' => $currentUserId

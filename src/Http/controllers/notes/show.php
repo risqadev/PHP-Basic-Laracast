@@ -2,8 +2,9 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 
-$currentUserId = $_SESSION['user']['id'];
+$currentUserId = Session::get('user')['id'];
 
 $db = App::resolve(Database::class);
 

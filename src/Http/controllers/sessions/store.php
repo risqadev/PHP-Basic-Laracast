@@ -2,6 +2,7 @@
 
 use Core\Authenticator;
 use Core\Message;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
@@ -17,6 +18,6 @@ if ($form->validate($email, $password)) {
   $form->setError('email', Message::USER_NOT_FOUND);
 }
 
-return view('sessions/create.view.php', [
-  'errors' => $form->getErrors()
-]);
+Session::flash('errors', $form->getErrors());
+
+redirect('/login');

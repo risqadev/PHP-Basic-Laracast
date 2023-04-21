@@ -4,6 +4,7 @@ use Core\App;
 use Core\Authenticator;
 use Core\Database;
 use Core\Message;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
@@ -24,10 +25,10 @@ if ($form->validate($email, $password)) {
 
     redirect('/login');
   }
+
+  $form->setError('email', Message::EMAIL_EXISTS);
 }
 
-$form->setError('email', Message::EMAIL_EXISTS);
+Session::flash('errors', $form->getErrors());
 
-return view('registration/create.view.php', [
-  'errors' => $form->getErrors()
-]);
+redirect('/register');

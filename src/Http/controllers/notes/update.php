@@ -4,8 +4,9 @@ use Core\App;
 use Core\Database;
 use Core\Message;
 use Core\Validator;
+use Core\Session;
 
-$currentUserId = $_SESSION['user']['id'];
+$currentUserId = Session::get('user')['id'];
 
 $errors = [];
 

@@ -12,7 +12,7 @@
 
             <a href="/about" class="<?= urlIs('/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">About</a>
             
-            <?php if ($_SESSION['user'] ?? false) : ?>
+            <?php if (\Core\Session::has('user')) : ?>
               <a href="/notes" class="<?= urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">Notes</a>
             <?php endif; ?>
             
@@ -29,7 +29,7 @@
             </svg>
           </button>
 
-          <?php if ($_SESSION['user'] ?? false) : ?>
+          <?php if (\Core\Session::has('user')) : ?>
             <!-- Profile dropdown -->
             <div class="relative ml-3">
               <div>

@@ -1,7 +1,7 @@
 <?php
 
 view('partials/head.php', [
-  'heading' => 'Register'
+  'heading' => $heading
 ]);
 view('partials/nav.php');
 ?>
