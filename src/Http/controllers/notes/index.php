@@ -5,9 +5,7 @@ use Core\Database;
 
 $currentUserId = $_SESSION['user']['id'];
 
-$db = App::resolve(Database::class);
-
-$notes = $db->query("SELECT id, body, user_id FROM notes WHERE user_id = :id", [
+$notes = App::resolve(Database::class)->query("SELECT id, body, user_id FROM notes WHERE user_id = :id", [
   ':id' => $currentUserId
 ])->findAll();
 
