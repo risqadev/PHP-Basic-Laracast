@@ -30,5 +30,8 @@ if ($form->validate($email, $password)) {
 }
 
 Session::flash('errors', $form->getErrors());
+Session::flash('old', [
+  'email' => $email
+]);
 
 redirect('/register');

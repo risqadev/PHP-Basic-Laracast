@@ -26,5 +26,8 @@ if ($form->validate($_POST['body'])) {
 $form->setError('body', Message::note_body_length('1,000'));
 
 Session::flash('errors', $form->getErrors());
+Session::flash('old', [
+  'body' => $_POST['body']
+]);
 
 redirect('/notes/create');

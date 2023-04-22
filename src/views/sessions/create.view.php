@@ -25,7 +25,7 @@ view('partials/nav.php');
                    required
                    class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                    placeholder="Email address"
-                   value="<?= $_POST['email'] ?? '' ?>">
+                   value="<?= old('email') ?>">
           </div>
           <div>
             <label for="password" class="sr-only">Password</label>
@@ -35,8 +35,7 @@ view('partials/nav.php');
                    autocomplete="current-password"
                    required
                    class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                   placeholder="Password"
-                   value="<?= $_POST['password'] ?? '' ?>">
+                   placeholder="Password">
           </div>
         </div>
         <ul>
