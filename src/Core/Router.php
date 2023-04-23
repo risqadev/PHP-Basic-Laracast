@@ -52,6 +52,11 @@ class Router
     return $this->add('PUT', $path, $controller);
   }
 
+  public function previousUrl()
+  {
+    return $_SERVER['HTTP_REFERER'];
+  }
+
   public function route($path, $method)
   {
     foreach ($this->routes as $route) {

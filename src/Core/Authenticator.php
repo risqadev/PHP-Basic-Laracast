@@ -15,11 +15,11 @@ class Authenticator
     return !! $this->getUser($email);
   }
 
-  public function attempt($email, $password)
+  public function attempt($attributes)
   {
-    $user = $this->getUser($email);
+    $user = $this->getUser($attributes['email']);
 
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && password_verify($attributes['password'], $user['password'])) {
       $this->login([
         'id' => $user['id'],
         'email' => $user['email']
