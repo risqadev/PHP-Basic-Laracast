@@ -14,5 +14,15 @@
             "Http\\": "src/Http/"
         }
     },
-    "require": {}
+    "require": {
+        "illuminate/collections": "^10.10"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
